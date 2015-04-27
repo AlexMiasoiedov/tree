@@ -1,0 +1,21 @@
+load 'tree/node.rb'
+class Tree
+  def add (str)
+    @root=TreeNode.new
+    @current=@root
+    @arr=str.split('')
+    @arr.each do |ch|
+      @next=@current.children[ch]
+      if @next.nil?
+        @next=TreeNode.new
+        @current.children[ch]=@next
+      end
+      @current=@next
+    end
+  end
+end
+
+
+
+test=Tree.new
+test.add('test')
